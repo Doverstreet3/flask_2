@@ -27,7 +27,7 @@ def login_chuli():
     if username == "d" and password == "d":  #登录验证，不连接数据库写死
         return render_template("index.html")
     else:
-        return render_template("login.html",msg="密码错误")
+        return "密码错误"
 
         
 @app.route("/uploadfile",methods=['POST'])
@@ -47,7 +47,7 @@ def ml():
     buf = io.StringIO()
     data.info(buf=buf)
     info = buf.getvalue()
-    with open('./uploads/data_info.txt','r+',encoding='utf-8') as f:
+    with open('./static/data_info.txt','r+',encoding='utf-8') as f:
         f.truncate()
         f.write(info)
         f.flush()
